@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -30,6 +31,9 @@ public class SimpleStream {
                 new Dish("prawns", false, 300, Dish.Type.FISH),
                 new Dish("salmon", false, 450, Dish.Type.FISH)
         );
+
+        List<DishTest> collect = menu.stream().map(a -> new DishTest(a.getName(), a.isVegetarian())).collect(toList());
+
         List<String> dishNamesByCollections = getDishNamesByCollections(menu);
         System.out.println(dishNamesByCollections);
 
@@ -41,6 +45,7 @@ public class SimpleStream {
     private static List<String> getDishNamesByStream(List<Dish> menu) {
         Stream<Dish> stream = menu.stream();
         stream.filter(dish -> dish.getCalories() < 400).sorted(Comparator.comparing(d -> d.getCalories())).map(Dish::getName).collect(toList());
+        Function<Dish, String> getName = Dish::getName;
 
         menu.stream().filter(dish -> dish.getCalories() < 400).sorted(Comparator.comparing(dish -> dish.getCalories())).map(Dish::getName).collect(toList());
         menu.stream().filter(dish -> dish.getCalories() < 400).sorted(Comparator.comparing(Dish::getCalories)).map(Dish::getName).collect(toList());

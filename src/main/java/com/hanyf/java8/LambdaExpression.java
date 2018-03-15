@@ -40,7 +40,7 @@ public class LambdaExpression {
 
         Supplier<Apple> supplier = Apple::new;
 
-
+        Function<Dish, DishTest> dd = (a) -> new DishTest(a.getName(), a.isVegetarian());
 
 
     }
