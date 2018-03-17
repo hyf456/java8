@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * @Author: hanyf
- * @Description:
+ * @Description: 简单的Stream
  * @Date: Created by in 23:56 2018/3/13
  */
 public class SimpleStream {
