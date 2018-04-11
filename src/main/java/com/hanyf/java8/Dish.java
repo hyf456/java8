@@ -1,13 +1,14 @@
 package com.hanyf.java8;
 
 
-import java.lang.reflect.Type;
+import lombok.Data;
 
 /**
  * @Author: hanyf
  * @Description:
  * @Date: Created by in 23:56 2018/3/13
  */
+@Data
 public class Dish {
 
     private final String name;

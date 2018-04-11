@@ -1,10 +1,13 @@
 package com.hanyf.java8;
 
+import lombok.Data;
+
 /**
  * @Author: hanyf
  * @Description:
  * @Date: Created by in 13:50 2018/3/15
  */
+@Data
 public class DishTest {
 
     private String name;

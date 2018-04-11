@@ -24,10 +24,11 @@ public class MethodReference {
         useConsumer(System.out::println, "Hello Wangwenjun");
 
         List<Apple> list = Arrays.asList(new Apple("Green", 110L), new Apple("Abc", 123L), new Apple("Red", 123L));
-
-        list.sort((a1, a2) -> a1.getColor().compareTo(a2.getColor()));//升序排列
+        //升序排列
+        list.sort((a1, a2) -> a1.getColor().compareTo(a2.getColor()));
         System.out.println(list);
-        list.sort((a1, a2) -> a2.getColor().compareTo(a1.getColor()));//降序排列
+        //降序排列
+        list.sort((a1, a2) -> a2.getColor().compareTo(a1.getColor()));
         System.out.println(list);
 
         list.stream().forEach(apple -> System.out.println(apple));

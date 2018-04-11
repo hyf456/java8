@@ -1,6 +1,10 @@
 package com.hanyf.java8;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -27,13 +31,32 @@ public class SimpleStream {
                 new Dish("salmon", false, 450, Dish.Type.FISH)
         );
 
-        List<DishTest> collect = menu.stream().map(a -> new DishTest(a.getName(), a.isVegetarian())).collect(toList());
+//        Stream<Dish> stream = menu.stream();
+//        stream.forEach(System.out::print);
 
-        List<String> dishNamesByCollections = getDishNamesByCollections(menu);
-        System.out.println(dishNamesByCollections);
+        Stream<Dish> dishStream = Stream.of(new Dish("prawns", false, 300, Dish.Type.FISH), new Dish("salmon", false, 450, Dish.Type.FISH));
+        dishStream.forEach(System.out::print);
 
-        List<String> dishNamesByStream = getDishNamesByStream(menu);
-        System.out.println(dishNamesByStream);
+
+        List<String> collect = menu.stream().filter(dish -> {
+            System.out.println("filtering->" + dish.getName());
+            return dish.getCalories() > 300;
+        })
+                .map(dish -> {
+                    System.out.println("map->" + dish.getName());
+                    return dish.getName();
+                })
+                .limit(3).collect(toList());
+        System.out.println("===============");
+        System.out.println(collect);
+
+//        List<DishTest> collect = menu.stream().map(a -> new DishTest(a.getName(), a.isVegetarian())).collect(toList());
+//
+//        List<String> dishNamesByCollections = getDishNamesByCollections(menu);
+//        System.out.println(dishNamesByCollections);
+//
+//        List<String> dishNamesByStream = getDishNamesByStream(menu);
+//        System.out.println(dishNamesByStream);
     }
 
     //stream实现了并行处理 会根据spliterator判断cpu的核数 根据后面true和false判断  ForkJoin是把任务分成几个。

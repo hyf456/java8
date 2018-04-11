@@ -1,10 +1,13 @@
 package com.hanyf.java8;
 
+import lombok.Data;
+
 /**
  * @Author: hanyf
  * @Description:
  * @Date: Created by in 20:04 2018/3/13
  */
+@Data
 public class Apple {
     
      /*

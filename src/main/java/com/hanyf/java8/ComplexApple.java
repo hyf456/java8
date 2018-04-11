@@ -1,10 +1,13 @@
 package com.hanyf.java8;
 
+import lombok.Data;
+
 /**
  * @Author: hanyf
  * @Description:
  * @Date: Created by in 12:54 2018/3/14
  */
+@Data
 public class ComplexApple {
 
     private String color;
